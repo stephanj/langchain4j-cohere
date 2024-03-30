@@ -61,7 +61,7 @@ assertThat(embed.content().vector()).isNotEmpty();
 ```
 
 ## Preparations
-The for the other Cohere features is included but not yet activated because Langchain4J doesn't support it yet.
+Extra Cohere features are also included but not yet activated because Langchain4J doesn't support it yet.
 
 ### Summarize
 
