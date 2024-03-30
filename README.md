@@ -25,16 +25,8 @@ class CohereClient extends CohereExecute {
         return execute(cohereApi.embed(request));
     }
 
-    public TypedEmbedResponse typedEmbed(TypedEmbedRequest request) {
-        return execute(cohereApi.typedEmbed(request));
-    }
-
     public void embedAsync(EmbedRequest request, AsyncCallback<EmbedResponse> callback) {
         execute(cohereApi.embed(request), callback);
-    }
-
-    public void typedEmbedAsync(TypedEmbedRequest request, AsyncCallback<TypedEmbedResponse> callback) {
-        execute(cohereApi.typedEmbed(request), callback);
     }
 }
 ```
@@ -51,7 +43,24 @@ Response<Embedding> embed = model.embed("Hello World");
 assertThat(embed.content().vector()).isNotEmpty();
 ```
 
+Specify model
+
+```Java
+String cohereApiKey = System.getenv("COHERE_API_KEY");
+CohereEmbeddingModel cohereEmbeddingModel = new CohereEmbeddingModel(null,
+    cohereApiKey,
+    CohereLanguageModel.EMBED_ENGLISH_V3_0,
+    CohereInputType.SEARCH_DOCUMENT,
+    Duration.ofSeconds(60),
+    false,
+    false);
+
+Response<Embedding> embed = cohereEmbeddingModel.embed("Hello World");
+assertThat(embed.content().vector()).isNotEmpty();
+```
+
 ## Preparations
+The for the other Cohere features is included but not yet activated because Langchain4J doesn't support it yet.
 
 ### Summarize
 
