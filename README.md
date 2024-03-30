@@ -47,7 +47,8 @@ Specify model
 
 ```Java
 String cohereApiKey = System.getenv("COHERE_API_KEY");
-CohereEmbeddingModel cohereEmbeddingModel = new CohereEmbeddingModel(null,
+CohereEmbeddingModel cohereEmbeddingModel = new CohereEmbeddingModel(
+    "https://api.cohere.ai/v1/",
     cohereApiKey,
     CohereLanguageModel.EMBED_ENGLISH_V3_0,
     CohereInputType.SEARCH_DOCUMENT,
