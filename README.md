@@ -1,6 +1,7 @@
 # Cohere LangChain4J support
 
 Cleanup of existing Langchain4J Cohere client (backwards compatible).
+See also the [Cohere embed API documentation](https://docs.cohere.com/docs/embed)
 
 ```java
 class CohereClient extends CohereExecute {
